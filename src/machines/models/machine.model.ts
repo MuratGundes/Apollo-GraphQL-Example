@@ -6,10 +6,10 @@ export class Machine {
   @Field(() => ID)
   id: string;
 
-  @Field(() => String, { nullable: false })
+  @Field(() => String)
   name: string;
 
-  @Field(() => [Sensor], { nullable: false })
+  @Field(() => [Sensor])
   sensors: Sensor[];
 
   @Field(() => GPSPosition)
@@ -18,9 +18,9 @@ export class Machine {
 
 @ObjectType({ description: 'GPSPosition' })
 export class GPSPosition {
-  @Field(() => String, { nullable: false })
+  @Field(() => String)
   lat: string;
 
-  @Field(() => String, { nullable: false })
+  @Field(() => String)
   long: string;
 }

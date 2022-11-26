@@ -6,9 +6,9 @@ export class Sensor {
   @Field(() => ID)
   id: string;
 
-  @Field(() => String, { nullable: false })
+  @Field(() => String)
   name: string;
 
-  @Field(() => Machine, { nullable: false })
+  @Field(() => Machine)
   machine: Machine;
 }
