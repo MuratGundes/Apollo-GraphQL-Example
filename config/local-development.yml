@@ -1,0 +1,5 @@
+mongo:
+  host: 'mongo'
+  type: 'mongodb'
+  port: 27017
+  collection: 'ApolloGraphql'
