@@ -1,9 +1,17 @@
 version: "3"
 services:
+  mongo:
+    image: mongo:4.0.27-xenial
+    ports:
+      - "27017:27017"
+    networks:
+      - apollo-network
   apollo-server:
     build:
       dockerfile: Dockerfile.dev
       context: ./
+    depends_on:
+      - mongo
     ports:
       - "3000:3000"
       - "9400:9400"

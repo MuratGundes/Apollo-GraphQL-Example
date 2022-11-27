@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Machine } from './models/machine.model';
+import { GetMachineArgs } from './dto/machine.args';
 
 @Injectable()
 export class MachineService {
@@ -7,7 +8,7 @@ export class MachineService {
     return [] as Machine[];
   }
 
-  async findOneById(id: string): Promise<Machine> {
+  async findOne(machineArgs: GetMachineArgs): Promise<Machine> {
     return {} as Machine;
   }
 }
