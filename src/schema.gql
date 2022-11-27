@@ -1,0 +1,40 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+"""GPSPosition"""
+type GPSPosition {
+  lat: String!
+  long: String!
+}
+
+"""Machine"""
+type Machine {
+  lastKnownPosition: GPSPosition
+  name: String!
+  sensors: [Sensor!]
+}
+
+type Query {
+  machine(name: String!): Machine!
+  machines: [Machine!]!
+  sensorData(from: DateTime!, id: ID!, to: DateTime!): [SensorDataPoint!]!
+}
+
+"""Sensor"""
+type Sensor {
+  machine: Machine!
+  name: String!
+}
+
+"""SensorDataPoint"""
+type SensorDataPoint {
+  id: ID!
+  timestamp: DateTime!
+  value: Float!
+}
