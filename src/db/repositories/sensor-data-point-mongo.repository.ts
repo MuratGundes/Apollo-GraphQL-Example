@@ -9,7 +9,7 @@ export class SensorDataPointMongoRepository
   implements ISensorDataPointRepository
 {
   constructor(
-    @InjectModel('SensorDataPointDocument')
+    @InjectModel('SensorDataPoint')
     private readonly sensorDataPointDocument: Model<SensorDataPointDocument>,
   ) {}
 

@@ -7,7 +7,7 @@ import { MachineDocument } from '../../common/machine-document.interface';
 @Injectable()
 export class MachineMongoRepository implements IMachineRepository {
   constructor(
-    @InjectModel('MachineDocument')
+    @InjectModel('Machine')
     private readonly machineDocument: Model<MachineDocument>,
   ) {}
 
