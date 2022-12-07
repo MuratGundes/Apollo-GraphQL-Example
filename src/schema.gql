@@ -13,7 +13,7 @@ type GPSPosition {
   long: String!
 }
 
-"""Machine"""
+"""MachineModel"""
 type Machine {
   lastKnownPosition: GPSPosition
   name: String!
@@ -34,7 +34,6 @@ type Sensor {
 
 """SensorDataPoint"""
 type SensorDataPoint {
-  id: ID!
   timestamp: DateTime!
   value: Float!
 }

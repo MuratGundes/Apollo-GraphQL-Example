@@ -1,18 +1,21 @@
 import { Injectable } from '@nestjs/common';
+import { Model } from 'mongoose';
 import { Machine } from './models/machine.model';
 import { GetMachineArgs } from './dto/machine.args';
-import { MachineMongoRepository } from '../db/repositories/machine-mongo.repository';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class MachineService {
-  constructor(private readonly machineRepository: MachineMongoRepository) {}
+  constructor(
+    @InjectModel(Machine.name)
+    private machineModel: Model<Machine>,
+  ) {}
+
   async findAll(): Promise<Machine[]> {
-    const result = await this.machineRepository.findAll();
-    return result as Machine[];
+    return this.machineModel.find();
   }
 
   async findOne(machineArgs: GetMachineArgs): Promise<Machine> {
-    const result = await this.machineRepository.findOne(machineArgs.name);
-    return result as Machine;
+    return this.machineModel.findOne(machineArgs);
   }
 }

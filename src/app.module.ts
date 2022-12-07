@@ -6,7 +6,6 @@ import { MachineModule } from './machines/machine.module';
 import { SensorDataPointModule } from './sensor-data-points/sensor-data-point.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MongoConfigService } from './db/mongo-config';
-import { DbModule } from './db/db.module';
 
 @Module({
   imports: [
@@ -20,7 +19,6 @@ import { DbModule } from './db/db.module';
     MongooseModule.forRootAsync({
       useClass: MongoConfigService,
     }),
-    DbModule,
   ],
 })
 export class AppModule {}
